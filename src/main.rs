@@ -967,13 +967,37 @@ fn main(){
 8,
 125143];
 
-let mut resultado1 = 0;
-for n in datos.iter(){
+let mut resultado_1 = 0;
+let mut resultado_2 = 0;
+let mut frecuencia = Vec::new();
+let mut lap = 1;
+frecuencia.push(0);
 
-	resultado1 += n;
+for n in datos.iter(){
+	resultado_1 += n; //realiza la sumatoria de todos los datos
 }
 
-	println!("The answer is .... {}", resultado1);
+'outer: loop{
+	println!("{} ------------------------------------------------------------------------------------------", lap);
+	for n in datos.iter(){
+		frecuencia.push(*n + frecuencia[lap-1]);
+			for a in 0..lap {
+				if frecuencia[a] == frecuencia[lap]{
+					resultado_2 = frecuencia[lap];
+					println!("{} == {}", frecuencia[lap], frecuencia[a]);
+					println!("resultado 2: {}", resultado_2);
+					break 'outer;
+				}
+		}
+		lap += 1;
+	}
+}
+//	for (i,n) in datos.iter().enumerate(){
+
+
+	println!("Resultado 1 .... {}, {}", resultado_1, datos.len());
+	//println!("Resultado 1 .... {}", resultado_1);
+	println!("Resultado 2 .... {}", resultado_2);
 
 
 }
