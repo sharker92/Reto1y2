@@ -976,9 +976,9 @@ frecuencia.push(0);
 for n in datos.iter(){
 	resultado_1 += n; //realiza la sumatoria de todos los datos
 }
-
+//obtiene la frecuencia repetida
 'outer: loop{
-	println!("{} ------------------------------------------------------------------------------------------", lap);
+	println!("lap :{} ", lap);
 	for n in datos.iter(){
 		frecuencia.push(*n + frecuencia[lap-1]);
 			for a in 0..lap {
@@ -992,12 +992,6 @@ for n in datos.iter(){
 		lap += 1;
 	}
 }
-//	for (i,n) in datos.iter().enumerate(){
-
-
-	println!("Resultado 1 .... {}, {}", resultado_1, datos.len());
-	//println!("Resultado 1 .... {}", resultado_1);
-	println!("Resultado 2 .... {}", resultado_2);
-
-
+println!("Resultado 1 .... {}", resultado_1);
+println!("Resultado 2 .... {}", resultado_2);
 }
